@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES_DIR=~/dotfiles
+DOTFILES_DIR=$DOTFILES
 
 declare -a files=("zshrc")
 
