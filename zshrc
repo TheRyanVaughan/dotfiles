@@ -14,13 +14,12 @@ export XDG_CONFIG_HOME="$DOTFILES"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -97,6 +96,7 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+PATH="$PATH:/APPLICATIONS/WEZTERM.APP/CONTENTS/MACOS"
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -133,6 +133,5 @@ if [ -d "$LG_WEBOS_TV_SDK_HOME/CLI/bin" ]; then
   # Adding the bin directory of CLI to the PATH variable
   export PATH="$PATH:$WEBOS_CLI_TV"
 fi
-
 
 source ~/.config/op/plugins.sh
