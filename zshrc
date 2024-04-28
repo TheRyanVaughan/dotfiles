@@ -108,6 +108,7 @@ PATH="$PATH:/APPLICATIONS/WEZTERM.APP/CONTENTS/MACOS"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 autoload bashcompinit && bashcompinit
 alias python="python3"
+alias nr="npm run"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -135,3 +136,7 @@ if [ -d "$LG_WEBOS_TV_SDK_HOME/CLI/bin" ]; then
 fi
 
 source ~/.config/op/plugins.sh
+
+export NVM_DIR="$HOME/dotfiles/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
