@@ -1,4 +1,4 @@
-local js_formatters = { "prettierd", "prettier" }
+local js_formatters = { "prettier", "eslint_d" }
 
 return { -- Autoformat
 	"stevearc/conform.nvim",

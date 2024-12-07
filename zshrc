@@ -9,6 +9,7 @@ export DOTFILES="$HOME/dotfiles"
 
 # Path to nvim config
 export XDG_CONFIG_HOME="$DOTFILES"
+export WEZTERM_CONFIG_FILE="$DOTFILES/wezterm/wezterm.lua"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -20,6 +21,7 @@ export XDG_CONFIG_HOME="$DOTFILES"
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" )
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -97,6 +99,13 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 PATH="$PATH:/APPLICATIONS/WEZTERM.APP/CONTENTS/MACOS"
+
+# Roblox specific GO config
+export GOPATH=~/go
+export PATH=$GOPATH/bin:$PATH
+export GOPROXY="https://artifactory.rbx.com/api/go/go-all"
+export GONOSUMDB="github.rbx.com"
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -105,38 +114,44 @@ PATH="$PATH:/APPLICATIONS/WEZTERM.APP/CONTENTS/MACOS"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+source <(fzf --zsh)
+
+# all systems
+alias vim="nvim"
+
+## convenient javascript commands
+alias nr="npm run"
+## convenient git commands
+alias gc="git checkout"
+## system navigation
+export GITHOME="$HOME/git/roblox"
+alias cdg="cd $GITHOME"
+alias cdch="cdg && cd creator-hub"
+alias cdea="cdg && cd external-attribution"
+alias cdal="cdg && cd affiliate-links"
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 autoload bashcompinit && bashcompinit
 alias python="python3"
 alias nr="npm run"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/ryanvaughan/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/ryanvaughan/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/ryanvaughan/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/ryanvaughan/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
-# Setting the LG_WEBOS_TV_SDK_HOME variable to the parent directory of CLI
-export LG_WEBOS_TV_SDK_HOME="/usr/local/bin/"
- 
-if [ -d "$LG_WEBOS_TV_SDK_HOME/CLI/bin" ]; then
-  # Setting the WEBOS_CLI_TV variable to the bin directory of CLI
-  export WEBOS_CLI_TV="$LG_WEBOS_TV_SDK_HOME/CLI/bin"
-  # Adding the bin directory of CLI to the PATH variable
-  export PATH="$PATH:$WEBOS_CLI_TV"
-fi
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
-source ~/.config/op/plugins.sh
+# Kafka CLI
+export PATH="/usr/local/kafka-3.8.0-src/bin/:$PATH"
 
-export NVM_DIR="$HOME/dotfiles/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export RBX_LOCAL_NUGET_FEED="$HOME/.rbx/LocalNuGetRepo"

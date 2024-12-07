@@ -1,4 +1,6 @@
+-- If terminal supports this, which wezterm does
 vim.g.have_nerd_font = true
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
@@ -6,11 +8,9 @@ vim.g.have_nerd_font = true
 
 -- Make line numbers default
 vim.opt.number = true
-
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 
+-- TODO: How do i configure this properly? it seems wrong on many projects
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = -1
 
@@ -20,8 +20,7 @@ vim.opt.mouse = "a"
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
--- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
+-- Sync clipboard between OS and Neovim (unnamed plus register "+ is how we paste from keyboard normally. I like yanking to my keyboard.
 --  See `:help 'clipboard'`
 vim.opt.clipboard = "unnamedplus"
 
@@ -68,3 +67,5 @@ vim.opt.scrolloff = 10
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
+
+vim.opt.shiftwidth = 4
