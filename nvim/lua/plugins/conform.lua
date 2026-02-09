@@ -1,4 +1,4 @@
-local js_formatters = { "prettier", "eslint_d" }
+local js_formatters = { "prettier", "eslint_d", stop_after_first = true }
 
 return { -- Autoformat
 	"stevearc/conform.nvim",
@@ -20,10 +20,10 @@ return { -- Autoformat
 			--
 			-- You can use a sub-list to tell conform to run *until* a formatter
 			-- is found.
-			javascript = { js_formatters },
-			typescript = { js_formatters },
-			javascriptreact = { js_formatters },
-			typescriptreact = { js_formatters },
+			javascript = js_formatters,
+			typescript = js_formatters,
+			javascriptreact = js_formatters,
+			typescriptreact = js_formatters,
 		},
 	},
 }
