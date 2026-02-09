@@ -44,7 +44,7 @@ return { -- LSP Configuration & Plugins
 				-- Jump to the type of the word under your cursor.
 				--  Useful when you're not sure what type a variable is and you want to see
 				--  the definition of its *type*, not where it was *defined*.
-				map("<leader>D", require("fzf-lua").lsp_type_definitions, "Type [D]efinition")
+				map("<leader>D", require("fzf-lua").lsp_typedefs, "Type [D]efinition")
 
 				-- Fuzzy find all the symbols in your current document.
 				--  Symbols are things like variables, functions, types, etc.
@@ -154,6 +154,10 @@ return { -- LSP Configuration & Plugins
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		require("mason-lspconfig").setup({
+			-- Exclude stylua from automatic LSP enable — it's a formatter (used via conform.nvim)
+			automatic_enable = {
+				exclude = { "stylua" },
+			},
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
